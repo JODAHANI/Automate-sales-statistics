@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('dotenv').config()
 
 mongoose.connect(process.env.MONGOURI).then(() => {
     console.log('잘 연결됐음.')

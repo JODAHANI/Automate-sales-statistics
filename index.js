@@ -7,9 +7,7 @@ const upload = multer({ dest: 'uploads/' })
 const app = express()
 const excelToJson = require('convert-excel-to-json');
 const port = 3000
-const fs = require('fs')
 const path = require('path')
-
 
 app.set('view engine', 'ejs')
 app.set("views", path.join(__dirname, 'server', "views"));
