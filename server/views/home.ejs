@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/home.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <li>
+            <a href="/">홈</a>
+        </li>
+        <li>
+            <a href="/result">결과</a>
+        </li>
+        <li>
+            <a class="reset" href="/reset">초기화</a>
+        </li>
+    </nav>
+    <div>
+        <form action="excel" method="post" enctype="multipart/form-data">
+            <input id='keyword' name="key" type="text" placeholder="※ 키워드를 입력해주세요 ※">
+            <input id="file-input" name="file" type="file"
+                accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel'>
+            <label for="file-input">※ 엑셀 파일을 올려주세요 ※</label>
+            <input type="submit" value="업로드">
+        </form>
+    </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        const form = document.querySelector('form');
+        const reset = document.querySelector('.reset');
+        const label = document.querySelector('label');
+
+        function init() {
+            form.addEventListener('change', (e) => {
+                let check = e.target.id
+                if (check === 'file-input') {
+                    let file = e.target.files[0];
+                    label.innerHTML = file.name
+                }
+            })
+            reset.addEventListener('click', () => {
+                alert('초기화 완료!')
+            })
+        }
+        init()
+    </script>
+</body>
+</html>
